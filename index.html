@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -285,130 +285,21 @@
                 <i class="feather-chevron-right"></i>
             </div>
             <div class="post-list-scroll">
-                <div class="post-list">
-                    <div class="post-head">
-                        <div class="post-head-up">
-                            <div class="post-profile">
-                                <img src="img/img1.jpg" alt="" class="post-profile-photo">
-                                <span class="post-photo-text">Tala Chan</span>
-                                <div class="upload-time">
-                                    <span>15 mins </span>
-                                    <i class="feather-globe"></i>
-                                </div>
-                            </div>
-                            <div class="post-menu gap-1">
-                                <!-- <i class="feather-more-horizontal"></i> -->
-                                <button><i class="fa-solid fa-pen-to-square"></i></button>
-                                <button><i class="fa-solid fa-delete-left"></i></button>
-                            </div>
-                        </div>
-                        <div class="post-caption">
-                            <span>This is my world !!!</span>
-                        </div>
-                    </div>
-                    <div class="post-upload">
-                        <img src="img/Wallpaper 01.jpg" alt="" class="post-upload-img">
-                    </div>
-                    <div class="post-comment">
-                        <div class="add-post-box">
-                            <span style="margin: 30px 0px;font-weight: bolder; color: #ffffff;">Like 100k</span>
-                            <span style="margin-right: 100px;">230 comments</span>
-                            <div class="diver"></div>
 
-                            <div class="post-add-file">
-                                <div class="">
-                                    <i class="feather-thumbs-up"></i>
-                                    <span>Like</span>
-                                </div>
-                                <div class="">
-                                    <i class="feather-message-square"></i>
-                                    <span>Comments</span>
-                                </div>
-                                <div class="">
-                                    <i class="feather-corner-up-right"></i>
-                                    <span>Share</span>
-                                </div>
-                            </div>
 
-                            <div class="diver"></div>
 
-                            <div class="add-text">
-                                <img src="img/img1.jpg" alt="" class="add-post-profile">
-                                <div class="add-post-text">
-                                    <input type="text" class="search-input text" placeholder="Write a comment.....">
-                                    <div class="">
-                                        <img src="img/camera.png" alt="" class="emoji-comment">
-                                        <img src="img/camera.png" alt="" class="emoji-comment">
-                                        <img src="img/camera.png" alt="" class="emoji-comment">
-                                        <img src="img/camera.png" alt="" class="emoji-comment">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                <div class="post-list"> 
+                    <!-- create post -->
                 </div>
-                <div class="post-list">
-                    <div class="post-head">
-                        <div class="post-head-up">
-                            <div class="post-profile">
-                                <img src="img/img2.jpg" alt="" class="post-profile-photo">
-                                <span class="post-photo-text">Shin Ryujin</span>
-                                <div class="upload-time">
-                                    <span>10 mins </span>
-                                    <i class="feather-globe"></i>
-                                </div>
-                            </div>
-                            <div class="post-menu">
-                                <i class="feather-more-horizontal"></i>
-                            </div>
-                        </div>
-                        <div class="post-caption">
-                            <span>Welcome to my idol ryujin !!!</span>
-                        </div>
-                    </div>
-                    <div class="post-upload">
-                        <img src="img/Wallpaper 02.jpg" alt="" class="post-upload-img">
-                    </div>
-                    <div class="post-comment">
-                        <div class="add-post-box">
-                            <span style="margin: 30px 0px;font-weight: bolder; color: #ffffff;">Like 10k</span>
-                            <span style="margin-right: 100px;">200 comments</span>
-                            <div class="diver"></div>
+                     
+                       
+                    
 
-                            <div class="post-add-file">
-                                <div class="">
-                                    <i class="feather-thumbs-up"></i>
-                                    <span>Like</span>
-                                </div>
-                                <div class="">
-                                    <i class="feather-message-square"></i>
-                                    <span>Comments</span>
-                                </div>
-                                <div class="">
-                                    <i class="feather-corner-up-right"></i>
-                                    <span>Share</span>
-                                </div>
-                            </div>
 
-                            <div class="diver"></div>
 
-                            <div class="add-text">
-                                <img src="img/img1.jpg" alt="" class="add-post-profile">
-                                <div class="add-post-text">
-                                    <input type="text" class="search-input text" placeholder="Write a comment.....">
-                                    <div>
-                                        <i class="feather-search"></i>
-                                        <i class="feather-search"></i>
-                                        <i class="feather-search"></i>
-                                        <i class="feather-search"></i>
-                                    </div>
-                                </div>
-                            </div>
+                    
+          
 
-                        </div>
-                    </div>
-                </div>
 
 
 
@@ -490,12 +381,13 @@
     </section>
 
 
+    <!-- modals -->
     <div class="modal fade" id="post-create">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h2>Create new Post</h2>
-                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                    <button class="btn-close" id="post-create-btn" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="msg"></div>
                 <div class="modal-body ">

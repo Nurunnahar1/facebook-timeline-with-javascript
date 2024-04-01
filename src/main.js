@@ -1,5 +1,5 @@
 const post_form = document.getElementById("post-create-form");
-const post_area = document.querySelector(".post-list");
+const post_area = document.querySelector(".friends_post");
 const post_create_btn = document.getElementById("post-create-btn");
 const msg = document.querySelector(".msg");
 
@@ -11,33 +11,92 @@ const getAllPosts = () => {
     let posts_data = "";
 
     posts.reverse().forEach((item, index) => {
-      posts_data += `
-   <div class="post-head">
-        <div class="post-head-up d-flex justify-content-between align-items-center mb-3">
-            <div class="post-profile d-flex align-items-center">
-                <img src="${item.photo}" alt="" class="post-profile-photo me-3">
-                <span class="post-photo-text">${item.name}</span>
-                <div class="upload-time ms-3">
-                    <span>${timeAgo(item.created_at)}</span>
-                    <i class="feather-globe"></i>
+      posts_data += ` 
+                <div class="friend_post_top">
+
+                    <div class="img_and_name">
+
+                        <img src="${item.photo}">
+
+                        <div class="friends_name">
+                            <p class="friends_name">
+                                ${item.name}
+                            </p>
+                            <p class="time">${timeAgo(
+                              item.created_at
+                            )}<i class="fa-solid fa-user-group"></i></p>
+                        </div>
+
+
+                    </div>
+
+                    <div class="menu d-flex me-4 gap-1">
+
+                        <!-- <i class="fa-solid fa-ellipsis"></i> -->
+                        <button><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button><i class="fa-solid fa-delete-left"></i></button>
+
+                    </div>
+
                 </div>
-            </div>
-            <div class="post-menu gap-1">
-                <button><i class="fa-solid fa-pen-to-square"></i></button>
-                <button onclick="daletePost('${item.id}')"><i class="fa-solid fa-delete-left"></i></button>
-            </div>
-        </div>
-        <div class="post-caption mb-3">
-            <span class="content">${item.content}</span>
-        </div>
-    </div>
-    <div class="post-upload my-2px">
-        <img src="${item.post_photo}" alt="" class="post-upload-img img-fluid">
-    </div>
+                <p>${item.content}</p>
+                <img src="${item.post_photo}">
 
+                <div class="info">
 
-               
-            `;
+                    <div class="emoji_img">
+                        <img src="image/like.png">
+                        <img src="image/haha.png">
+                        <img src="image/heart.png">
+                        <p>You, Charith Disanayaka and 25K others</p>
+                    </div>
+
+                    <div class="comment">
+                        <p>421 Comments</p>
+                        <p>1.3K Shares</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="like">
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-thumbs-up activi"></i>
+                        <p>Like</p>
+                    </div>
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-message"></i>
+                        <p>Comments</p>
+                    </div>
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-share"></i>
+                        <p>Share</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="comment_warpper">
+
+                    <img src="https://avatars.githubusercontent.com/u/111399644?s=48&v=4">
+                    <div class="circle"></div>
+
+                    <div class="comment_search">
+
+                        <input type="text" placeholder="Write a comment">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <i class="fa-solid fa-camera"></i>
+                        <i class="fa-regular fa-note-sticky"></i>
+
+                    </div>
+
+                </div>
+      `;
     });
     post_area.innerHTML = posts_data;
   }
@@ -69,6 +128,7 @@ post_form.onsubmit = (event) => {
       photo,
       content,
       post_photo,
+      created_at: Date.now(),
       created_at: Date.now(),
     });
     localStorage.setItem("posts", JSON.stringify(isData));

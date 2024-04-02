@@ -34,7 +34,9 @@ const getAllPosts = () => {
 
                         <!-- <i class="fa-solid fa-ellipsis"></i> -->
                         <button><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button><i class="fa-solid fa-delete-left"></i></button>
+                        <button onclick="deletePost('${
+                          item.id
+                        }')"><i class="fa-solid fa-square-xmark"></i></button>
 
                     </div>
 
@@ -101,6 +103,20 @@ const getAllPosts = () => {
     post_area.innerHTML = posts_data;
   }
 };
+
+//delete post
+const deletePost = (id) => {
+  // console.log(id);
+  const conf = confirm("Are you sure ?");
+
+  if (conf) {
+    const posts = JSON.parse(localStorage.getItem("posts")); // get all posts
+    const updatedPosts = posts.filter((data) => data.id !== id); //without the deleted posts
+    localStorage.setItem("posts", JSON.stringify(updatedPosts)); //send the updated posts to localStorage
+    getAllPosts();
+  }
+};
+
 getAllPosts();
 
 post_form.onsubmit = (event) => {

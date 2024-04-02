@@ -1,6 +1,8 @@
 const post_form = document.getElementById("post-create-form");
+const post_update_form = document.getElementById("post-update-form");
 const post_area = document.querySelector(".friends_post");
-const post_create_btn = document.getElementById("post-create-btn");
+const post_create_btn = document.getElementById("close-btn-modal");
+const post_update_btn = document.getElementById("close-btn");
 const msg = document.querySelector(".msg");
 
 const getAllPosts = () => {
@@ -33,7 +35,9 @@ const getAllPosts = () => {
                     <div class="menu d-flex me-4 gap-1">
 
                         <!-- <i class="fa-solid fa-ellipsis"></i> -->
-                        <button><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button data-bs-toggle="modal" data-bs-target="#post-update" onclick="postEdit('${
+                          item.id
+                        }')"><i class="fa-solid fa-pen-to-square"></i></button>
                         <button onclick="deletePost('${
                           item.id
                         }')"><i class="fa-solid fa-square-xmark"></i></button>
@@ -117,8 +121,24 @@ const deletePost = (id) => {
   }
 };
 
+//edit post
+const postEdit = (id) => {
+  // console.log(id);
+  const posts = JSON.parse(localStorage.getItem("posts")); // get all posts
+  const { name, photo, content, post_photo } = posts.find(
+    (data) => data.id == id
+  ); //get the edit post
+  // console.log(name, photo, content, post_photo);
+  post_update_form.querySelector('input[name="name"]').value = name;
+  post_update_form.querySelector('input[name="photo"]').value = photo;
+  post_update_form.querySelector('textarea[name="content"]').value = content;
+  post_update_form.querySelector('input[name="post_photo"]').value = post_photo;
+  post_update_form.querySelector('input[name="id"]').value = id;
+};
+
 getAllPosts();
 
+//create post
 post_form.onsubmit = (event) => {
   event.preventDefault();
 
@@ -145,11 +165,34 @@ post_form.onsubmit = (event) => {
       content,
       post_photo,
       created_at: Date.now(),
-      created_at: Date.now(),
     });
     localStorage.setItem("posts", JSON.stringify(isData));
   }
   event.target.reset();
   post_create_btn.click();
   getAllPosts();
+};
+
+//update post
+
+post_update_form.onsubmit = (event) => {
+  event.preventDefault();
+
+  const form_data = new FormData(event.target);
+  const { id, name, photo, content, post_photo } =
+    Object.fromEntries(form_data);
+
+  const data = JSON.parse(localStorage.getItem("posts"));
+
+  const updateData = data.map((item) => {
+    if (item.id == id) {
+      return { ...item, name, photo, content, post_photo };
+    } else {
+      return item;
+    }
+  });
+
+  localStorage.setItem("posts", JSON.stringify(updateData));
+  getAllPosts();
+  post_update_btn.click();
 };

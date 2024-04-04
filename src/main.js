@@ -48,7 +48,21 @@ const getAllPosts = () => {
                 <p>${item.content}</p>
                 <img src="${item.post_photo}">
 
-                
+                <div class="info">
+
+                    <div class="emoji_img">
+                        <img src="image/like.png">
+                        <img src="image/haha.png">
+                        <img src="image/heart.png">
+                        <p>You, Charith Disanayaka and 25K others</p>
+                    </div>
+
+                    <div class="comment">
+                        <p>421 Comments</p>
+                        <p>1.3K Shares</p>
+                    </div>
+
+                </div>
 
                 <hr>
 
@@ -75,19 +89,19 @@ const getAllPosts = () => {
 
                 <div class="comment_warpper">
 
-                      <img src="https://avatars.githubusercontent.com/u/111399644?s=48&v=4">
-                      <div class="circle"></div>
+                    <img src="https://avatars.githubusercontent.com/u/111399644?s=48&v=4">
+                    <div class="circle"></div>
 
-                      <div class="comment_search">
+                    <div class="comment_search">
 
-                          <input type="text" placeholder="Write a comment">
-                          <i class="fa-regular fa-face-smile"></i>
-                          <i class="fa-solid fa-camera"></i>
-                          <i class="fa-regular fa-note-sticky"></i>
+                        <input type="text" placeholder="Write a comment">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <i class="fa-solid fa-camera"></i>
+                        <i class="fa-regular fa-note-sticky"></i>
 
-                      </div>
                     </div>
 
+                </div>
       `;
     });
     post_area.innerHTML = posts_data;
@@ -160,7 +174,6 @@ post_form.onsubmit = (event) => {
 };
 
 //update post
-
 post_update_form.onsubmit = (event) => {
   event.preventDefault();
 
@@ -182,3 +195,4 @@ post_update_form.onsubmit = (event) => {
   getAllPosts();
   post_update_btn.click();
 };
+

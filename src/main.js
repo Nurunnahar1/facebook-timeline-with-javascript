@@ -172,7 +172,6 @@ post_form.onsubmit = (event) => {
   post_create_btn.click();
   getAllPosts();
 };
-
 //update post
 post_update_form.onsubmit = (event) => {
   event.preventDefault();
@@ -195,4 +194,5 @@ post_update_form.onsubmit = (event) => {
   getAllPosts();
   post_update_btn.click();
 };
+
 

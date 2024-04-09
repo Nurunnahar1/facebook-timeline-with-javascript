@@ -194,5 +194,3 @@ post_update_form.onsubmit = (event) => {
   getAllPosts();
   post_update_btn.click();
 };
-
-

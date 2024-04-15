@@ -55,6 +55,7 @@ const displayComments = (postId) => {
   }
 };
 
+
 // Helper function to format timestamp
 const formatTimestamp = (timestamp) => {
   const date = new Date(timestamp);
